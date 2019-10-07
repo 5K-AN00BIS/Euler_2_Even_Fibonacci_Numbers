@@ -12,6 +12,35 @@ public class EvenFibonacci
 {
     public static void main(String[] args)
     {
+        // Create the 3 integer variables that will hold the 3 fibonacci numbers.
+        int fibo1 = 1;
+        int fibo2 = 2;
+        int fiboTemp = 0;
+        int fiboSum = 2;
 
+        System.out.print("Fibonacci Number Sequence: " + fibo1 + " " + fibo2 + " ");
+        // While loop that goes as long as fibonacci number is under 4 million as specified in the problem.
+        while (fiboTemp <= 40000000 && fibo1 <= 4000000 && fibo2 <= 4000000)
+        {
+            // Set the temporary variable equal to the sum of the 1st and 2nd number.
+            fiboTemp = fibo1 + fibo2;
+
+            // Output the fibonacci numbers.
+            System.out.print(fiboTemp + " ");
+
+            // Move fibo2 back one to drop the number we no longer need.
+            fibo1 = fibo2;
+            // Move the previous sum into fibo2 int variable to traverse the fibonacci sequence.
+            fibo2 = fiboTemp;
+
+            // If fibo1 is even, then add to get the sum of the even numbers.
+            if (fibo1 % 2 == 0)
+            {
+                fiboSum = fiboSum + fibo1;
+            }
+        }
+
+        // Output the sum of the even fibonacci numbers - 2 which is the additional 2 getting thrown in with it.
+        System.out.print("\n\nSum of even Fibonacci numbers is: " + (fiboSum - 2));
     }
 }
